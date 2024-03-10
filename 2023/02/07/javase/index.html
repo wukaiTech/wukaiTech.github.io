@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JavaSe | wkの博客</title><meta name="author" content="吴凯"><meta name="copyright" content="吴凯"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java核心基础8种基本数据类型：	int、short、long、char、byte、double、float、booleanJVM：java虚拟机，java程序的运行环境。 权限修饰符：   修饰符 本类 本包 其他包子类 其他包非子类    private √      protected √ √ √    缺省 √ √     public √ √ √ √   方法的重写和重载：  重写：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaSe">
+<meta property="og:url" content="http://example.com/2023/02/07/javase/index.html">
+<meta property="og:site_name" content="wkの博客">
+<meta property="og:description" content="Java核心基础8种基本数据类型：	int、short、long、char、byte、double、float、booleanJVM：java虚拟机，java程序的运行环境。 权限修饰符：   修饰符 本类 本包 其他包子类 其他包非子类    private √      protected √ √ √    缺省 √ √     public √ √ √ √   方法的重写和重载：  重写：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/maomi.jpg">
+<meta property="article:published_time" content="2023-02-07T02:39:00.000Z">
+<meta property="article:modified_time" content="2024-03-09T09:18:19.382Z">
+<meta property="article:author" content="吴凯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/maomi.jpg"><link rel="shortcut icon" href="/img/maomi.jpg"><link rel="canonical" href="http://example.com/2023/02/07/javase/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaSe',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-09 17:18:19'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/maomi.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="wkの博客"><span class="site-name">wkの博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaSe</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-07T02:39:00.000Z" title="发表于 2023-02-07 10:39:00">2023-02-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-09T09:18:19.382Z" title="更新于 2024-03-09 17:18:19">2024-03-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaSe"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Java核心基础"><a href="#Java核心基础" class="headerlink" title="Java核心基础"></a>Java核心基础</h2><h3 id="8种基本数据类型：int、short、long、char、byte、double、float、boolean"><a href="#8种基本数据类型：int、short、long、char、byte、double、float、boolean" class="headerlink" title="8种基本数据类型：	int、short、long、char、byte、double、float、boolean"></a><strong>8种基本数据类型：</strong>	int、short、long、char、byte、double、float、boolean</h3><h3 id="JVM：java虚拟机，java程序的运行环境。"><a href="#JVM：java虚拟机，java程序的运行环境。" class="headerlink" title="JVM：java虚拟机，java程序的运行环境。"></a><strong>JVM：</strong>java虚拟机，java程序的运行环境。</h3><p><img src="/2023/02/07/javase/image-20220513191856727.png"></p>
+<h3 id="权限修饰符："><a href="#权限修饰符：" class="headerlink" title="权限修饰符："></a><strong>权限修饰符：</strong></h3><table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">本类</th>
+<th align="left">本包</th>
+<th align="left">其他包子类</th>
+<th align="left">其他包非子类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">private</td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">protected</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">缺省</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">public</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">√</td>
+</tr>
+</tbody></table>
+<h3 id="方法的重写和重载："><a href="#方法的重写和重载：" class="headerlink" title="方法的重写和重载："></a><strong>方法的重写和重载：</strong></h3><p>  重写：</p>
+<pre><code>   1.重写的方法与父类方法有相同的方法名、参数列表。
+
+   2.子类重写方法返回值类型不能大于父类方法。
+
+   3.子类重写方法访问权限不能小于父类方法。
+</code></pre>
+<p>  重载：</p>
+<pre><code>   1.方法名相同，参数列表不同，不看返回值类型。
+</code></pre>
+<h3 id="static关键字："><a href="#static关键字：" class="headerlink" title="static关键字："></a><strong>static关键字：</strong></h3><p>  <strong>静态变量特点：</strong></p>
+<pre><code>             1.静态变量值为所有对象共享。
+
+             2.如果权限修饰符允许，可通过&quot;类名.变量名&quot;访问。
+
+             3.静态变量在本类中，可以在任意方法、代码块、构造器中直接使用。
+</code></pre>
+<h3 id="多线程："><a href="#多线程：" class="headerlink" title="多线程："></a><strong>多线程：</strong></h3><pre><code>    1.线程的创建方式：
+       1.1 继承Thread类：
+         (1)定义Thread类的子类，重写run()方法，run()方法内容即为线程执行内容。
+         (2)创建Thread子类的实例，即创建线程对象。
+         (3)调用线程对象的start()方法，启动线程。
+       1.2 实现Runnable接口：
+         (1)定义Runnable接口的实现类，并重写该接口的run()方法.
+         (2)创建Runnable实现类的实例，并以此实例作为Thread的target参数来创建Thread对象，该Thread对象才是真正的线程对象。
+         (3)调用线程对象的start()方法，启动线程。调用Runnable接口实现类的run方法。
+    2.线程的生命周期：
+       新建、就绪、运行、阻塞、死亡
+    3.线程的安全问题
+       3.1 同一资源问题和线程安全问题
+       	  3.1.1 局部变量不能共享
+       	  案例：火车站卖票，三个窗口同时卖100张票，不能错票、重票。
+       	  实例代码：
+       	  	package com.atguigu.unsafe;
+
+            class Window extends Thread &#123;
+                public void run() &#123;
+                    int ticket = 100;
+                    while (ticket &gt; 0) &#123;
+                    System.out.println(getName() + &quot;卖出一张票，票号:&quot; + ticket);
+                    ticket--;
+                    &#125;
+                &#125;		
+            &#125;
+
+            public class SaleTicketDemo1 &#123;
+                public static void main(String[] args) &#123;
+                    Window w1 = new Window();
+                    Window w2 = new Window();
+                    Window w3 = new Window();
+
+                    w1.setName(&quot;窗口1&quot;);
+                    w2.setName(&quot;窗口2&quot;);
+                    w3.setName(&quot;窗口3&quot;);
+
+                    w1.start();
+                    w2.start();
+                    w3.start();
+                &#125;
+            &#125;
+           结果：发现卖出300张票。
+           问题：局部变量是每次调用方法都是独立的，那么每个线程的run()的ticket是独立的，不是共享数据。
+
+           3.1.2 不同对象的实例变量不能共享
+           示例代码：
+           		package com.atguigu.unsafe;
+
+                    class TicketWindow extends Thread &#123;
+                        private int ticket = 100;
+
+                        public void run() &#123;
+                            while (ticket &gt; 0) &#123;
+                                System.out.println(getName() + &quot;卖出一张票，票号:&quot; + ticket);
+                                ticket--;
+                            &#125;
+                        &#125;
+                    &#125;
+
+                    public class SaleTicketDemo2 &#123;
+                        public static void main(String[] args) &#123;
+                            TicketWindow w1 = new TicketWindow();
+                            TicketWindow w2 = new TicketWindow();
+                            TicketWindow w3 = new TicketWindow();
+
+                            w1.setName(&quot;窗口1&quot;);
+                            w2.setName(&quot;窗口2&quot;);
+                            w3.setName(&quot;窗口3&quot;);
+
+                            w1.start();
+                            w2.start();
+                            w3.start();
+                        &#125;
+                    &#125;
+                    结果：发现卖出300张票。
+                    问题：不同的实例对象的实例变量是独立的。
+             3.1.3 静态变量是共享的
+             示例代码
+             		package com.atguigu.unsafe;
+
+                    class TicketSaleThread extends Thread &#123;
+                        private static int ticket = 100;
+
+                        public void run() &#123;
+                            while (ticket &gt; 0) &#123;
+                                try &#123;
+                                    Thread.sleep(10);//加入这个，使得问题暴露的更明显
+                                &#125; catch (InterruptedException e) &#123;
+                                    e.printStackTrace();
+                                &#125;
+                                System.out.println(getName() + &quot;卖出一张票，票号:&quot; + ticket);
+                                ticket--;
+                            &#125;
+                        &#125;
+                    &#125;
+
+                    public class SaleTicketDemo3 &#123;
+                        public static void main(String[] args) &#123;
+                            TicketSaleThread t1 = new TicketSaleThread();
+                            TicketSaleThread t2 = new TicketSaleThread();
+                            TicketSaleThread t3 = new TicketSaleThread();
+
+                            t1.setName(&quot;窗口1&quot;);
+                            t2.setName(&quot;窗口2&quot;);
+                            t3.setName(&quot;窗口3&quot;);
+
+                            t1.start();
+                            t2.start();
+                            t3.start();
+                        &#125;
+                    &#125;
+                    结果：成功卖出100张票。
+
+    4.同步机制解决线程安全问题
+        根据案例简述：窗口1线程进入操作的时候，窗口2和窗口3线程只能在外等着，窗口1操作结束，
+        窗口1和窗口2和窗口3才有机会进入代码去执行。也就是说在某个线程修改共享资源的时候，其
+        他线程不能修改该资源，等待修改完毕同步之后，才能去抢夺CPU资源，完成对应的操作，保证
+        了数据的同步性，解决了线程不安全的现象。
+
+        4.1 同步机制解决线程安全问题原理
+            同步机制的原理，其实就相当于给某段代码加“锁”，任何线程想要执行这段代码，都要先获得“锁”，我们称它为同步锁。最多只能有一个线程拿到锁。
+</code></pre>
+<h3 id="区分String、StringBuffer、StringBuilder"><a href="#区分String、StringBuffer、StringBuilder" class="headerlink" title="区分String、StringBuffer、StringBuilder"></a>区分String、StringBuffer、StringBuilder</h3><ul>
+<li>String：不可变字符串</li>
+<li>StringBuffer：可变字符串，方法使用synchronized修饰，线程安全，效率低。</li>
+<li>StringBuilder：可变字符串，线程不安全，效率高。</li>
+</ul>
+<h3 id="集合体系"><a href="#集合体系" class="headerlink" title="集合体系"></a>集合体系</h3><p><img src="/2023/02/07/javase/20240309171727.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">吴凯</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/07/javase/">http://example.com/2023/02/07/javase/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">wkの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/maomi.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2023/02/15/mysql/" title="MySQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MySQL</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/maomi.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">吴凯</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Java核心基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9Aint%E3%80%81short%E3%80%81long%E3%80%81char%E3%80%81byte%E3%80%81double%E3%80%81float%E3%80%81boolean"><span class="toc-number">1.1.</span> <span class="toc-text">8种基本数据类型：	int、short、long、char、byte、double、float、boolean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM%EF%BC%9Ajava%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%8Cjava%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E3%80%82"><span class="toc-number">1.2.</span> <span class="toc-text">JVM：java虚拟机，java程序的运行环境。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">权限修饰符：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E5%86%99%E5%92%8C%E9%87%8D%E8%BD%BD%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">方法的重写和重载：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#static%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%9A"><span class="toc-number">1.5.</span> <span class="toc-text">static关键字：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.6.</span> <span class="toc-text">多线程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%86String%E3%80%81StringBuffer%E3%80%81StringBuilder"><span class="toc-number">1.7.</span> <span class="toc-text">区分String、StringBuffer、StringBuilder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E4%BD%93%E7%B3%BB"><span class="toc-number">1.8.</span> <span class="toc-text">集合体系</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a><time datetime="2024-01-15T07:52:34.000Z" title="发表于 2024-01-15 15:52:34">2024-01-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/15/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="面试总结">面试总结</a><time datetime="2024-01-15T07:52:34.000Z" title="发表于 2024-01-15 15:52:34">2024-01-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/15/%E5%88%86%E5%B8%83%E5%BC%8F/" title="分布式">分布式</a><time datetime="2023-08-15T07:52:34.000Z" title="发表于 2023-08-15 15:52:34">2023-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/06/07/Redis/" title="Redis">Redis</a><time datetime="2023-06-07T07:52:34.000Z" title="发表于 2023-06-07 15:52:34">2023-06-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/15/mysql/" title="MySQL">MySQL</a><time datetime="2023-02-15T07:52:34.000Z" title="发表于 2023-02-15 15:52:34">2023-02-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 吴凯</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
